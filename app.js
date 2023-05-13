@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 //DOTENV Config
 require("dotenv").config();
@@ -19,7 +22,12 @@ mongoose
     console.log("Database error");
   });
 
-//middleware
+//Middleware
+app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+//Routes middleware
 app.use("/api", userRoutes);
 
 const port = process.env.PORT || 8000;
