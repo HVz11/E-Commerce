@@ -22,11 +22,9 @@ exports.signin = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res
-        .status(400)
-        .json({
-          error: "User with that email does not exist. Please sign up.",
-        });
+      return res.status(400).json({
+        error: "User with that email does not exist. Please sign up.",
+      });
     }
     //if user is found make sure the email and password match
     // create authenticate method in user model
@@ -44,4 +42,9 @@ exports.signin = async (req, res) => {
   } catch (err) {
     res.status(400).json({ error: errorHandler(err) });
   }
+};
+
+exports.signout = (req, res) => {
+  res.clearCookie("t");
+  res.json({ message: "Signout Successfully" });
 };
