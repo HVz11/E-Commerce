@@ -26,6 +26,18 @@ const productSchema = new mongoose.Schema(
       required: true,
       maxlength: 32,
     },
+    quantity: {
+        type: Number,
+
+    },
+    photo: {
+        data: Buffer,
+        contentType: String
+    },
+    shipping: {
+        required: false,
+        type: Boolean
+    }
   },
   { timestamps: true }
 );
