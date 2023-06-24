@@ -27,17 +27,20 @@ const productSchema = new mongoose.Schema(
       maxlength: 32,
     },
     quantity: {
-        type: Number,
-
+      type: Number,
+    },
+    sold: {
+      type: Number,
+      default: 0,
     },
     photo: {
-        data: Buffer,
-        contentType: String
+      data: Buffer,
+      contentType: String,
     },
     shipping: {
-        required: false,
-        type: Boolean
-    }
+      required: false,
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );
