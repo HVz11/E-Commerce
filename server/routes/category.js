@@ -16,21 +16,21 @@ router.get("/category/:categoryId", read);
 router.post(
   "/category/create/:userId",
   requireSignin,
-  isAdmin,
+  isAuth,
   isAdmin,
   create
 );
 router.put(
   "/category/:categoryId/:userId",
   requireSignin,
-  isAdmin,
+  isAuth,
   isAdmin,
   update
 );
 router.delete(
   "/category/:categoryId/:userId",
   requireSignin,
-  isAdmin,
+  isAuth,
   isAdmin,
   remove
 );
